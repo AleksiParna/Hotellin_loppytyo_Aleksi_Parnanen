@@ -19,7 +19,7 @@ struct huone {
 	bool varattu = 0;
 	int yomaara;
 };
-//Alustetaan käytettäviä funktioita
+//Alustetaan kÃ¤ytettÃ¤viÃ¤ funktioita
 void varaus(vector<huone>& huoneetlista, int hinta);
 void etsivnum(vector<huone>& huoneetlista);
 void etsinim(vector<huone>& huoneetlista);
@@ -33,7 +33,7 @@ int main()
 	int valinta;
 	bool lopeta;
 
-	//Arvotaan huoneiden lukumäärä ja hinta
+	//Arvotaan huoneiden lukumÃ¤Ã¤rÃ¤ ja hinta
 	const int huoneet = rand() % 41 + 30;
 	const int hinta = rand() % 21 + 80;
 
@@ -46,17 +46,17 @@ int main()
 	}
 
 
-	//Menu rakenne ja syötteen tarkistus
+	//Menu rakenne ja syÃ¶tteen tarkistus
 
 		do {
 			lopeta = false;
-			cout << "\n \n Hotelli Ankka \n 1. Varaa huone \n 2. Etsi varausnumerolla \n 3. Etsi nimellä \n 4. Peru varaus \n 5. Lopeta \n";
+			cout << "\n \n Hotelli Ankka \n 1. Varaa huone \n 2. Etsi varausnumerolla \n 3. Etsi nimellÃ¤ \n 4. Peru varaus \n 5. Lopeta \n";
 			cin >> valinta;
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-			//Tarkistetaan että syöte on numero
+			//Tarkistetaan ettÃ¤ syÃ¶te on numero
 			if (cin.fail()) {
-				cout << "\n Virhe syötä numero! \n";
+				cout << "\n Virhe syÃ¶tÃ¤ numero! \n";
 				cin.clear();
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				continue;
@@ -104,9 +104,9 @@ void varaus(vector<huone>& huoneetlista, int hinta) {
 		}
 	}
 	cout << varattuja<< " kpl";
-	cout << "\n Yhden yön hinta on: " << hinta << " euroa" << endl;
+	cout << "\n Yhden yÃ¶n hinta on: " << hinta << " euroa" << endl;
 
-	//kysytään käyttäjältä nimi ja montako yötä yövytään ja tarkistetaan onko syöte oikein, jos tyhjä nimi varaus nimellä tyhja
+	//kysytÃ¤Ã¤n kÃ¤yttÃ¤jÃ¤ltÃ¤ nimi ja montako yÃ¶tÃ¤ yÃ¶vytÃ¤Ã¤n ja tarkistetaan onko syÃ¶te oikein, jos tyhjÃ¤ nimi varaus nimellÃ¤ tyhja
 
 	do {
 		oikein = true;
@@ -119,12 +119,12 @@ void varaus(vector<huone>& huoneetlista, int hinta) {
 		}
 
 		while (true) {
-			cout << "\n Onko nimi: " << nimi << " oikein paina 1 jos kyllä, paina 0 jos ei : ";
+			cout << "\n Onko nimi: " << nimi << " oikein paina 1 jos kyllÃ¤, paina 0 jos ei : ";
 			cin >> oikein;
 
 
 			if (cin.fail() || (oikein != 0 && oikein != 1)) {
-				cout << "\n Syötä joko 1 tai 0";
+				cout << "\n SyÃ¶tÃ¤ joko 1 tai 0";
 				cin.clear();
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				continue;
@@ -136,7 +136,7 @@ void varaus(vector<huone>& huoneetlista, int hinta) {
 
 	do {
 		oikein = true;
-		cout << "\n Montako yötä haluat varata: ";
+		cout << "\n Montako yÃ¶tÃ¤ haluat varata: ";
 		cin >> yot;
 
 		if (cin.fail() || yot <= 0) {
@@ -148,12 +148,12 @@ void varaus(vector<huone>& huoneetlista, int hinta) {
 		else {
 
 			while (true) {
-				cout << "\n Haluat varata " << yot << " yötä? Vastaa 1 jos kyllä, 0 jos ei: ";
+				cout << "\n Haluat varata " << yot << " yÃ¶tÃ¤? Vastaa 1 jos kyllÃ¤, 0 jos ei: ";
 				cin >> oikein;
 
 
 				if (cin.fail() || (oikein != 0 && oikein != 1)) {
-					cout << "Syötä joko 1 tai 0";
+					cout << "SyÃ¶tÃ¤ joko 1 tai 0";
 					cin.clear();
 					cin.ignore(numeric_limits<streamsize>::max(), '\n');
 					continue;
@@ -166,7 +166,7 @@ void varaus(vector<huone>& huoneetlista, int hinta) {
 
 
 	bool error;
-	//varataan ensimmäinen vapaa huone
+	//varataan ensimmÃ¤inen vapaa huone
 	for (int n = 0; n < huoneetlista.size(); n++) {
 		if (!huoneetlista[n].varattu) {
 			huoneetlista[n].varattu = true;
@@ -185,9 +185,9 @@ void varaus(vector<huone>& huoneetlista, int hinta) {
 			
 			
 			//ilmoitetaan onnistuneesta varauksesta
-			cout << "\n Varaus onnistui huoneeseen: " << huoneetlista[n].huoneennumero<< " Nimellä: "<< nimi;
+			cout << "\n Varaus onnistui huoneeseen: " << huoneetlista[n].huoneennumero<< " NimellÃ¤: "<< nimi;
 			cout << "\n Varausnumerosi on: " << huoneetlista[n].varausnumero;
-			cout << "\n Yöpymesi maksaa: " << hinta * yot << " euroa";
+			cout << "\n YÃ¶pymesi maksaa: " << hinta * yot << " euroa";
 
 			break;
 		}
@@ -195,30 +195,30 @@ void varaus(vector<huone>& huoneetlista, int hinta) {
 }
 
 
-//etsitään huone varausnumerolla
+//etsitÃ¤Ã¤n huone varausnumerolla
 void etsivnum(vector<huone>& huoneetlista) {
 	int varausnum;
 
 	while(true) {
 
-		//kysytään varausnumero ja syötteentarkistus
-		cout << "\n Syötä varausnumerosi: ";
+		//kysytÃ¤Ã¤n varausnumero ja syÃ¶tteentarkistus
+		cout << "\n SyÃ¶tÃ¤ varausnumerosi: ";
 		cin >> varausnum;
 
 		if (cin.fail() || varausnum<=0) {
-			cout << "\n Virhe syötä positiivinen kokonaisluku! \n";
+			cout << "\n Virhe syÃ¶tÃ¤ positiivinen kokonaisluku! \n";
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			continue;
 		}
 
 
-		//etsitään huonetta varausnumerolla, jos löytyi annetaan huoneen tiedot jos ei takaisin alkuvalikkoon.
+		//etsitÃ¤Ã¤n huonetta varausnumerolla, jos lÃ¶ytyi annetaan huoneen tiedot jos ei takaisin alkuvalikkoon.
 		for (int n = 0; n < huoneetlista.size(); n++) {
 			if (huoneetlista[n].varausnumero == varausnum) {
-				cout << "\n Varausnumerolla löytyi huone numero " << huoneetlista[n].huoneennumero;
-				cout << "\n Huone on varattu nimellä: " << huoneetlista[n].nimi;
-				cout << "\n Huone on varattu " << huoneetlista[n].yomaara << " yöksi";
+				cout << "\n Varausnumerolla lÃ¶ytyi huone numero " << huoneetlista[n].huoneennumero;
+				cout << "\n Huone on varattu nimellÃ¤: " << huoneetlista[n].nimi;
+				cout << "\n Huone on varattu " << huoneetlista[n].yomaara << " yÃ¶ksi";
 				return;
 			}
 		}
@@ -229,60 +229,60 @@ void etsivnum(vector<huone>& huoneetlista) {
 }
 
 
-//etsitään varattu huone nimellä
+//etsitÃ¤Ã¤n varattu huone nimellÃ¤
 void etsinim(vector<huone>& huoneetlista) {
 	string hakunimi;
 	bool loyty = false;
 
 	while (true) {
-		//kysytään nimi
+		//kysytÃ¤Ã¤n nimi
 		cout << "\n Anna nimi jolla haetaan huonevarausta: ";
 		getline(cin, hakunimi);
 
 		if (hakunimi.empty()) {
-			cout << "Syötä nimi \n";
+			cout << "SyÃ¶tÃ¤ nimi \n";
 		}
 		else { break; }
 	}
 
 
-	//etsitään huone, jos löytyy vastauksena huoneen tiedot, jos ei takaisin alkuvalikkoon
+	//etsitÃ¤Ã¤n huone, jos lÃ¶ytyy vastauksena huoneen tiedot, jos ei takaisin alkuvalikkoon
 	
 		for (int n = 0; n < huoneetlista.size(); n++) {
 			if (!huoneetlista[n].nimi.compare(hakunimi)) {
-				cout << "\n Nimelle löytyi varattu huone numero " << huoneetlista[n].huoneennumero;
+				cout << "\n Nimelle lÃ¶ytyi varattu huone numero " << huoneetlista[n].huoneennumero;
 				cout << "\n Huoneen varausnumero on " << huoneetlista[n].varausnumero;
-				cout << "\n Huone on varattu " << huoneetlista[n].yomaara << " yöksi \n";
+				cout << "\n Huone on varattu " << huoneetlista[n].yomaara << " yÃ¶ksi \n";
 				loyty = true;
 			}
 		}
 		if (!loyty) {
-			cout << "\n Nimellä ei löytynyt varattua huonetta.";
+			cout << "\n NimellÃ¤ ei lÃ¶ytynyt varattua huonetta.";
 		}
 
 }
 
 
-//Peruutetaan varaus vain varausnumerolla, koska nimiä voi olla samoja
+//Peruutetaan varaus vain varausnumerolla, koska nimiÃ¤ voi olla samoja
 void peruvaraus(vector<huone>& huoneetlista) {
 	int varausnum;
 
 
-	//kysytään varausnumero ja virheentarkisus
+	//kysytÃ¤Ã¤n varausnumero ja virheentarkisus
 	while(true) {
 
-		cout << "Syötä varausnumerosi, jolle haluat peruuttaa varauksesi: ";
+		cout << "SyÃ¶tÃ¤ varausnumerosi, jolle haluat peruuttaa varauksesi: ";
 		cin >> varausnum;
 
 		if (cin.fail() || varausnum <= 0) {
-			cout << "\n Virhe syötä positiivinen kokonaisluku! \n";
+			cout << "\n Virhe syÃ¶tÃ¤ positiivinen kokonaisluku! \n";
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			continue;
 		}
 
 
-		//Tyhjenneään varatun huoneen tiedot ja ilmoitetaan onnisuneesta varauksesta sitten takaisin vlaikkoon
+		//TyhjenneÃ¤Ã¤n varatun huoneen tiedot ja ilmoitetaan onnisuneesta varauksesta sitten takaisin vlaikkoon
 		for (int n = 0; n < huoneetlista.size(); n++) {
 			if (huoneetlista[n].varausnumero == varausnum) {
 				huoneetlista[n].varattu = false;
@@ -295,7 +295,7 @@ void peruvaraus(vector<huone>& huoneetlista) {
 				return;
 			}
 		}
-		cout << "\n Varausnumerollasi ei löytynyt varausta.";
+		cout << "\n Varausnumerollasi ei lÃ¶ytynyt varausta.";
 		return;
 
 	}
